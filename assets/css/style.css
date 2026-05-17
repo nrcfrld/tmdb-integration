@@ -20,6 +20,16 @@
     }
 }
 
+@keyframes rotate-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+       transform: rotate(360deg);
+    }
+}
+
 
 .header {
     background-color: var(--bg-primary);
@@ -124,7 +134,7 @@ main {
     width: 100%;
     height: 100%;
     display: block;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(59, 59, 59, 0.6);
     top: 0;
     left: 0;
 
@@ -139,4 +149,87 @@ main {
     max-width: 250px;
     position: relative;
     z-index: 1;
+    background-color: gray;
+    min-height: 100px;
+    width: 250px;
+}
+
+.loading-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-primary);
+    z-index: 999;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    border: 10px solid #e5d9f6;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border-top: 10px solid #a665fc;
+    animation: rotate-animation .5s linear infinite;
+}
+
+.btn-trailer {
+    margin-top: 24px;
+    padding: 12px 24px;
+    background-color: #a665fc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.modal-trailer {
+    background-color: rgba(30, 30, 30, 0.8);
+    top: 0;
+    right: -5000px;
+    bottom: 0;
+
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    color: white;
+
+    transition: .25s;
+}
+
+.modal-trailer-content {
+    background-color: rgb(0, 0, 0);
+    padding: 24px 0;
+    border-radius: 8px;
+    width: 70%;
+}
+
+.modal-trailer-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    margin-bottom: 24px;
+}
+
+.close-modal {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.modal-trailer-content h2 {
+    padding: 0 24px;
+    font-size: 18px;
+    margin-bottom: 0;
 }
