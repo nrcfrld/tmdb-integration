@@ -1,0 +1,6 @@
+TODO :
+
+1. Buat Card nya itu clickable dan bisa pindah halaman ke detail.html beserta kirim id movienya juga (DONE)
+2. Ambil id movie yang ada di url (DONE);
+3. Lakukan request ke tmdb untuk ambil movie by id menggunakan fetch (DONE)
+4. Kalau sudah kita bisa render UI sesuai dengan hasil response
