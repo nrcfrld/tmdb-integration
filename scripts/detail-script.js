@@ -10,7 +10,7 @@ if(!movieId){
 
 
 const defineMovieFunc = () => {
-    let movie = null;
+    let movie = {};
     let videos = [];
 
     return {
@@ -50,6 +50,9 @@ const defineMovieFunc = () => {
             const iframeTrailer = document.querySelector(".modal-trailer iframe");
 
             iframeTrailer.src = `https://www.youtube.com/embed/${videos[0].key}`;
+        },
+        getMovie : () => {
+            return movie;
         }
     }
 }
@@ -81,6 +84,26 @@ async function init(){
 
     closeModalBtn.addEventListener("click", () => {
         modalTrailer.style.right = "-5000px";
+    })
+
+    // Add event to favorite button
+    const btnFavorite = document.querySelector(".btn-favorite");
+
+    btnFavorite.addEventListener("click" , (e) => {
+        e.preventDefault();
+
+        // Ambil data favorite existing
+        if(!localStorage.getItem("movie-favorites")){
+            localStorage.setItem("movie-favorites", JSON.stringify([]));
+        }
+
+        const movieFavorites = JSON.parse(localStorage.getItem("movie-favorites"));
+
+        movieFavorites.push(movieDetail.getMovie());
+
+        localStorage.setItem("movie-favorites", JSON.stringify(movieFavorites))
+
+        alert("Movie added to favorite");
     })
 }
 
