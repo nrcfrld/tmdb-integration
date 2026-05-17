@@ -4,6 +4,11 @@ const urlParams = new URLSearchParams(window.location.search);
 
 const movieId = urlParams.get("id");
 
+if(!movieId){
+    window.location.href = "./index.html";
+}
+
+
 const defineMovieFunc = () => {
     let movie = null;
     let videos = [];
